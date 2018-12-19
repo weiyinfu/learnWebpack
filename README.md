@@ -1,8 +1,8 @@
-原仓库地址：github.com/ruanyf/webpack-demos 前端技术更新太快，许多旧代码都已经跑步起来了。本repo基于最新的库，重新跑通一遍例子，并对例子的顺序进行调整，添加了部分例子。 
+原仓库地址：github.com/ruanyf/webpack-demos 前端技术更新太快，许多旧代码都已经跑不起来了。本repo基于最新的库跑通代码并增删部分例子。 
 
-单纯看代码实例不够系统，可以和webpack官方文档配合查看。webpack中文文档：https://www.webpackjs.com/
+为了系统化掌握webpack，首先阅读webpack中文文档：https://www.webpackjs.com/
 
-本仓库包含了webpack的基本用法示例，运行非常简单，全部跑通一遍，必然能够完全掌握webpack。前端技术百花齐放，百家争鸣，webpack是学习前端的绝佳入口，可以引出许多技术。
+本仓库包含了webpack的基本用法示例，全部跑通一遍，必然能够完全掌握webpack。前端技术百花齐放，百家争鸣，webpack是学习前端的绝佳入口，可以引出许多技术。
 
 # 概念梳理
 ## node
@@ -12,15 +12,15 @@ js是一种脚本语言，需要解释器一步一步执行。node是谷歌推�
 ## js的编译器
 编译器，就是把一种源语言翻译成一种目标语言。  
 js之上人们提出typescript，babel，coffescript，jsx等语言，这些语言可以用相应的编译器翻译成js语言。类似的，css有less，sass，stylus等语言，使用对应的编译器可以把它们翻译成css。html有jade语言，使用jade编译器可以把jade代码变成html代码。    
-编译器和执行器是两个概念。c++语言只需要编译器不需要执行器，因为c++编译之后的目标代码就可以直接被计算机理解，不需要执行器解释执行。java语言既需要编译器把java源码编译成中间代码class文件，有需要执行器jvm来解释执行class文件。  
+编译器和执行器是两个概念。c++语言只需要编译器不需要执行器，因为c++编译之后的目标代码就可以直接被计算机理解，不需要执行器解释执行。java语言既需要编译器把java源码编译成中间代码class文件，又需要执行器jvm来解释执行class文件。  
 java-class-jvm  
 typescript-js-node  
 
 ## npm
-npm是node package management，npm是node的包管理工具。
+npm是node package management的简写，npm是node的包管理工具。
 npm之于js，犹如maven之于java，犹如pip之于python，犹如make之于c++，它就是一个包管理工具。npm的包管理模式有全局、局部两种，全局模式安装的包是全局共享的，局部模式安装的包只有当前项目能够看到。全局模式的优点在于：便于统一管理，节省空间；局部模式的优点在于：便于对包修改源码，更加灵活，同时部署更为简易。maven中只有全局模式。  
-就像maven总是查看pom.xml一样，npm命令总是查看package.json文件，在package.json文件中可以定义许多诸如命令行、依赖等各种项目。  
-npm的竞品主要是yarn。  
+就像maven总是查看pom.xml一样，npm命令总是查看package.json文件，在package.json文件中可以定义命令、依赖等内容。  
+npm的竞品主要是yarn，yarn是facebook推出的包管理工具。  
 
 ## webpack
 webpack是什么？webpack是基于node编写的一套命令行工具，主要用途就是对源代码进行预处理操作。简言之，webpack用于管理编译过程。
@@ -33,7 +33,9 @@ npm install -g webpack-dev-server
 ```
 webpack是核心部分，webpack-cli和webpack-dev-server提供了一些外围功能。webpack-dev-server等价于webpack+http-server（http-server是一个静态服务器，可以通过npm install -g http-server进行安装），webpack命令执行打包操作，http-server启动一个静态服务器。  
 webpack有许多竞品：Grunt、Gulp、Browserify。这些竞品完全不是webpack的对手，可以忽略之。  
-就像npm命令总是查看package.json，就像maven总是查看pom.xml，webpack总是根据当前目录下的webpack.config.js来执行操作。
+就像npm命令总是查看package.json，就像maven总是查看pom.xml，webpack总是根据当前目录下的webpack.config.js来执行操作。  
+webpack是如何管理编译打包过程的呢？它把源文件看做输入结点，把目标作为输出结点，整个构建过程形成一个有向无环图（DAG），webpack按步骤执行编译打包过程。  
+webpack中最重要的两个东西时loader和plugin，loader相当于编译器，plugin则通过定义一些钩子函数使得用户可以参与到构建的每个过程中。  
 
 # 本repo使用方法
 在本repo中，一律使用全局模式安装包。  
