@@ -1,8 +1,6 @@
-原仓库地址：github.com/ruanyf/webpack-demos 前端技术更新太快，许多旧代码都已经跑不起来了。本repo基于最新的库跑通代码并增删部分例子。 
-
 为了系统化掌握webpack，首先阅读webpack中文文档：https://www.webpackjs.com/
 
-本仓库包含了webpack的基本用法示例，全部跑通一遍，必然能够完全掌握webpack。前端技术百花齐放，百家争鸣，webpack是学习前端的绝佳入口，可以引出许多技术。
+本仓库包含了webpack的基本用法示例，全部跑通一遍，必然能够完全掌握webpack。前端技术百花齐放，百家争鸣，webpack是学习前端的绝佳入口，可以引出许多技术。 
 
 # 概念梳理
 ## node
@@ -105,3 +103,7 @@ webpack插件丰富多彩，但是大部分都是可有可无的，作用仅仅�
 
 # 10-代码片段
 webpack的重要作用就是打包。比如两个页面共用相同的header和footer，我们就可以使用require("header.js"),require("footer.js")直接把相同的部分引入进来。
+
+
+# 参考资料
+[阮一峰的webpack教程](https://github.com/ruanyf/webpack-demos)：前端技术更新太快，许多旧代码都已经跑不起来了。本repo基于最新的库跑通代码并增删部分例子。 
